@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KDSportLyte — Bold Electrolyte for Bold Kids ⚡</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body>
+
+  <!-- Cursor Glow -->
+  <div id="cursorGlow"></div>
+
+  <!-- Floating Emojis -->
+  <div id="floatingEmojis" class="floating-emojis"></div>
+
+  <!-- Scroll Progress -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-bolt">⚡</span> KD<span>SportLyte</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#flavors">Flavors</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#nutrition">Nutrition</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartToggle" aria-label="Cart">
+          <iconify-icon icon="solar:bag-4-bold" width="22"></iconify-icon>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#flavors">Flavors</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#nutrition">Nutrition</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart 🛒</h3>
+      <button id="cartClose" aria-label="Close Cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn-checkout" id="checkoutBtn">Checkout Now ⚡</button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ===== CONFETTI CANVAS ===== -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-badge" id="heroBadge">🏆 #1 Kids Electrolyte</span>
+        <h1 id="heroTitle">FUEL THEIR <span class="gradient-text">ADVENTURE</span></h1>
+        <p>Keep your little champions hydrated with the boldest, tastiest electrolyte drink made just for kids. Zero junk. All fun.</p>
+        <div class="hero-buttons">
+          <a href="#flavors" class="btn-primary magnetic-btn">Shop Flavors <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+          <a href="#benefits" class="btn-secondary magnetic-btn">Why KDSportLyte?</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong id="statKids">0</strong><span>Happy Kids</span></div>
+          <div class="stat"><strong id="statFlavors">0</strong><span>Flavors</span></div>
+          <div class="stat"><strong id="statSugar">0g</strong><span>Sugar</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-bottle" id="heroBottle">
+          <div class="bottle-glow"></div>
+          <div class="bottle-body" id="bottleBody">
+            <div class="bottle-liquid" id="bottleLiquid"></div>
+            <div class="bottle-label">⚡<br>KDSport<br>LYTE</div>
+            <div class="bottle-shine"></div>
+          </div>
+          <div class="bottle-cap"></div>
+          <div class="splash splash-1"></div>
+          <div class="splash splash-2"></div>
+          <div class="splash splash-3"></div>
+          <div class="bottle-ring ring-1"></div>
+          <div class="bottle-ring ring-2"></div>
+          <div class="bottle-ring ring-3"></div>
+        </div>
+        <div class="hero-floating-icons">
+          <span class="floating-icon fi-1">⚡</span>
+          <span class="floating-icon fi-2">💧</span>
+          <span class="floating-icon fi-3">🏆</span>
+          <span class="floating-icon fi-4">💪</span>
+          <span class="floating-icon fi-5">🔥</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#flavors">
+        <iconify-icon icon="solar:alt-arrow-down-linear" width="24"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>⚡ ZERO SUGAR</span><span>🍊 REAL FRUIT</span><span>💪 ELECTROLYTES</span><span>🧒 KID APPROVED</span><span>🌿 NATURAL</span><span>🏆 PEDIATRICIAN RECOMMENDED</span><span>⚡ ZERO SUGAR</span><span>🍊 REAL FRUIT</span><span>💪 ELECTROLYTES</span><span>🧒 KID APPROVED</span><span>🌿 NATURAL</span><span>🏆 PEDIATRICIAN RECOMMENDED</span>
+    </div>
+  </div>
+
+  <!-- ===== LIFESTYLE BANNER ===== -->
+  <section class="lifestyle-banner">
+    <div class="lifestyle-overlay"></div>
+    <img src="https://picsum.photos/seed/kidsport1/1400/500.jpg" alt="Kids playing sports" class="lifestyle-img" />
+    <div class="lifestyle-content">
+      <h2>MADE FOR <span class="gradient-text">EVERY SPORT</span></h2>
+      <p>Soccer. Gymnastics. Swimming. Basketball. Whatever they play, we keep them going.</p>
+    </div>
+  </section>
+
+  <!-- ===== FLAVORS ===== -->
+  <section id="flavors" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🎨 Pick Your Power</span>
+        <h2>Bold Flavors for <span class="gradient-text">Bold Kids</span></h2>
+        <p>Each flavor packed with essential electrolytes and zero sugar. Which one will be your game-changer?</p>
+      </div>
+      <div class="flavor-tabs" id="flavorTabs">
+        <button class="flavor-tab active" data-flavor="blue">⚡ Blue Lightning</button>
+        <button class="flavor-tab" data-flavor="orange">🍊 Orange Blast</button>
+        <button class="flavor-tab" data-flavor="pink">🍓 Pink Power</button>
+        <button class="flavor-tab" data-flavor="green">🥝 Green Galaxy</button>
+        <button class="flavor-tab" data-flavor="red">🍉 Red Rush</button>
+      </div>
+      <div class="flavor-showcase" id="flavorShowcase"></div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== FLAVOR GALLERY ===== -->
+  <section class="flavor-gallery-section">
+    <div class="container">
+      <div class="flavor-gallery">
+        <div class="gallery-item tilt-card" data-tilt>
+          <img src="https://picsum.photos/seed/bluebolt/400/500.jpg" alt="Blue Lightning" />
+          <div class="gallery-overlay" style="background:linear-gradient(135deg,rgba(0,180,255,0.8),rgba(0,100,200,0.8))">
+            <span class="gallery-emoji">⚡</span>
+            <h3>Blue Lightning</h3>
+            <p>Electric raspberry bolt</p>
+          </div>
+        </div>
+        <div class="gallery-item tilt-card" data-tilt>
+          <img src="https://picsum.photos/seed/orangeblast/400/500.jpg" alt="Orange Blast" />
+          <div class="gallery-overlay" style="background:linear-gradient(135deg,rgba(255,107,0,0.8),rgba(200,60,0,0.8))">
+            <span class="gallery-emoji">🍊</span>
+            <h3>Orange Blast</h3>
+            <p>Citrus sunshine burst</p>
+          </div>
+        </div>
+        <div class="gallery-item tilt-card" data-tilt>
+          <img src="https://picsum.photos/seed/pinkpower/400/500.jpg" alt="Pink Power" />
+          <div class="gallery-overlay" style="background:linear-gradient(135deg,rgba(255,20,147,0.8),rgba(200,0,100,0.8))">
+            <span class="gallery-emoji">🍓</span>
+            <h3>Pink Power</h3>
+            <p>Strawberry strength kick</p>
+          </div>
+        </div>
+        <div class="gallery-item tilt-card" data-tilt>
+          <img src="https://picsum.photos/seed/greengalaxy/400/500.jpg" alt="Green Galaxy" />
+          <div class="gallery-overlay" style="background:linear-gradient(135deg,rgba(127,255,0,0.8),rgba(0,180,0,0.8))">
+            <span class="gallery-emoji">🥝</span>
+            <h3>Green Galaxy</h3>
+            <p>Kiwi-lime cosmic trip</p>
+          </div>
+        </div>
+        <div class="gallery-item tilt-card" data-tilt>
+          <img src="https://picsum.photos/seed/redrush22/400/500.jpg" alt="Red Rush" />
+          <div class="gallery-overlay" style="background:linear-gradient(135deg,rgba(255,68,68,0.8),rgba(180,0,0,0.8))">
+            <span class="gallery-emoji">🍉</span>
+            <h3>Red Rush</h3>
+            <p>Watermelon wave rush</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HYDRATION CALCULATOR ===== -->
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🧮 Hydration Calculator</span>
+        <h2>How Much Does <span class="gradient-text">Your Kid</span> Need?</h2>
+        <p>Find the perfect hydration plan based on their activity level.</p>
+      </div>
+      <div class="calc-wrapper">
+        <div class="calc-card tilt-card" data-tilt>
+          <div class="calc-step" id="calcStep1">
+            <label>Child's Weight (lbs)</label>
+            <div class="calc-slider-group">
+              <input type="range" id="calcWeight" min="30" max="150" value="60" />
+              <span id="calcWeightVal" class="calc-val">60 lbs</span>
+            </div>
+            <label>Activity Level</label>
+            <div class="calc-activity-btns">
+              <button class="calc-act-btn active" data-level="low">🚶 Light</button>
+              <button class="calc-act-btn" data-level="medium">🏃 Moderate</button>
+              <button class="calc-act-btn" data-level="high">🔥 Intense</button>
+            </div>
+            <label>Duration (hours)</label>
+            <div class="calc-slider-group">
+              <input type="range" id="calcDuration" min="1" max="6" value="2" />
+              <span id="calcDurationVal" class="calc-val">2 hrs</span>
+            </div>
+            <button class="calc-submit magnetic-btn" id="calcSubmit">Calculate ⚡</button>
+          </div>
+          <div class="calc-result" id="calcResult" style="display:none;">
+            <div class="calc-result-icon">💧</div>
+            <h3 id="calcResultTitle">Hydration Plan</h3>
+            <div class="calc-result-stats">
+              <div class="calc-stat">
+                <span class="calc-stat-num" id="calcOz">0</span>
+                <span class="calc-stat-label">oz of water</span>
+              </div>
+              <div class="calc-stat">
+                <span class="calc-stat-num" id="calcSticks">0</span>
+                <span class="calc-stat-label">KDSportLyte sticks</span>
+              </div>
+            </div>
+            <p id="calcResultMsg" class="calc-result-msg"></p>
+            <button class="calc-submit magnetic-btn" id="calcReset">Recalculate 🔄</button>
+          </div>
+        </div>
+        <div class="calc-visual">
+          <img src="https://picsum.photos/seed/kidhydrate/500/600.jpg" alt="Kid hydrating" class="calc-img tilt-card" data-tilt />
+          <div class="calc-visual-badge">
+            <span>⚡</span> Smart Hydration
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section id="benefits" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💪 Why We're Better</span>
+        <h2>Powered by <span class="gradient-text">Goodness</span></h2>
+        <p>No artificial colors. No fake flavors. Just what active kids need.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card tilt-card" data-tilt data-color="blue">
+          <div class="benefit-icon"><iconify-icon icon="solar:bolt-circle-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">01</div>
+          <h3>Instant Hydration</h3>
+          <p>Replenishes fluids and electrolytes 3x faster than water alone.</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="benefit-card tilt-card" data-tilt data-color="orange">
+          <div class="benefit-icon"><iconify-icon icon="solar:heart-pulse-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">02</div>
+          <h3>Zero Sugar</h3>
+          <p>No sugar crash. Sweetened naturally with monk fruit and stevia.</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="100%"></div></div>
+        </div>
+        <div class="benefit-card tilt-card" data-tilt data-color="pink">
+          <div class="benefit-icon"><iconify-icon icon="solar:shield-check-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">03</div>
+          <h3>Pediatrician Approved</h3>
+          <p>Formulated with input from pediatric nutritionists.</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="90%"></div></div>
+        </div>
+        <div class="benefit-card tilt-card" data-tilt data-color="green">
+          <div class="benefit-icon"><iconify-icon icon="solar:leaf-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">04</div>
+          <h3>Natural Ingredients</h3>
+          <p>Real fruit flavors. No artificial dyes or preservatives.</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="98%"></div></div>
+        </div>
+        <div class="benefit-card tilt-card" data-tilt data-color="red">
+          <div class="benefit-icon"><iconify-icon icon="solar:running-2-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">05</div>
+          <h3>Game Ready</h3>
+          <p>Perfect before, during, and after sports or play time.</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="92%"></div></div>
+        </div>
+        <div class="benefit-card tilt-card" data-tilt data-color="blue">
+          <div class="benefit-icon"><iconify-icon icon="solar:star-bold" width="40"></iconify-icon></div>
+          <div class="benefit-number">06</div>
+          <h3>Kid Approved Taste</h3>
+          <p>Tested by over 50,000 kids — 97% taste approval rate!</p>
+          <div class="benefit-bar"><div class="benefit-bar-fill" data-width="97%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="howit" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🎯 Super Simple</span>
+        <h2>How It <span class="gradient-text">Works</span></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card tilt-card" data-tilt>
+          <div class="step-num">1</div>
+          <div class="step-icon"><iconify-icon icon="solar:waterdrop-bold" width="36"></iconify-icon></div>
+          <h3>Pour</h3>
+          <p>Drop one stick into your kid's favorite water bottle.</p>
+          <div class="step-image">
+            <img src="https://picsum.photos/seed/pourstep/200/120.jpg" alt="Pour" />
+          </div>
+        </div>
+        <div class="step-connector"><iconify-icon icon="solar:arrow-right-linear" width="28"></iconify-icon></div>
+        <div class="step-card tilt-card" data-tilt>
+          <div class="step-num">2</div>
+          <div class="step-icon"><iconify-icon icon="solar:shaker-bold" width="36"></iconify-icon></div>
+          <h3>Shake</h3>
+          <p>Give it a quick shake — dissolves instantly, no clumps!</p>
+          <div class="step-image">
+            <img src="https://picsum.photos/seed/shakestep/200/120.jpg" alt="Shake" />
+          </div>
+        </div>
+        <div class="step-connector"><iconify-icon icon="solar:arrow-right-linear" width="28"></iconify-icon></div>
+        <div class="step-card tilt-card" data-tilt>
+          <div class="step-num">3</div>
+          <div class="step-icon"><iconify-icon icon="solar:cup-star-bold" width="36"></iconify-icon></div>
+          <h3>Enjoy</h3>
+          <p>Watch them gulp it down and get back in the game!</p>
+          <div class="step-image">
+            <img src="https://picsum.photos/seed/enjoystep/200/120.jpg" alt="Enjoy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NUTRITION ===== -->
+  <section id="nutrition" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🔬 Transparency First</span>
+        <h2>Nutrition <span class="gradient-text">Facts</span></h2>
+        <p>Know exactly what's going into your kid's body.</p>
+      </div>
+      <div class="nutrition-wrapper">
+        <div class="nutrition-label tilt-card" data-tilt>
+          <div class="nutrition-title">KDSportLyte — Blue Lightning</div>
+          <div class="nutrition-serving">Serving Size: 1 stick (5g)</div>
+          <div class="nutrition-divider"></div>
+          <div class="nutrition-row head"><span>Amount Per Serving</span><span>% Daily Value</span></div>
+          <div class="nutrition-divider"></div>
+          <div class="nutrition-row"><span>Calories</span><span>5</span></div>
+          <div class="nutrition-row"><span>Total Fat</span><span>0g</span></div>
+          <div class="nutrition-row highlight"><span>Sodium</span><span>150mg <em>7%</em></span></div>
+          <div class="nutrition-row highlight"><span>Potassium</span><span>200mg <em>4%</em></span></div>
+          <div class="nutrition-row"><span>Total Carbohydrate</span><span>2g <em>1%</em></span></div>
+          <div class="nutrition-row indent"><span>Sugars</span><span>0g</span></div>
+          <div class="nutrition-row highlight"><span>Magnesium</span><span>50mg <em>12%</em></span></div>
+          <div class="nutrition-row"><span>Zinc</span><span>3mg <em>27%</em></span></div>
+          <div class="nutrition-row highlight"><span>Vitamin C</span><span>60mg <em>100%</em></span></div>
+          <div class="nutrition-divider"></div>
+          <div class="nutrition-ingredients">
+            <strong>Ingredients:</strong> Citric Acid, Monk Fruit Extract, Natural Flavors, Sodium Citrate, Potassium Citrate, Magnesium Citrate, Zinc Gluconate, Ascorbic Acid, Stevia Leaf Extract, Fruit & Vegetable Juice (color).
+          </div>
+        </div>
+        <div class="nutrition-compare">
+          <h3>vs. The Competition</h3>
+          <div class="compare-item">
+            <div class="compare-label"><span>KDSportLyte</span><span>Competitor</span></div>
+            <div class="compare-bar-group">
+              <span>Sugar</span>
+              <div class="compare-bar"><div class="compare-fill us" data-width="0%"></div><div class="compare-fill them" data-width="80%"></div></div>
+              <div class="compare-vals"><span>0g</span><span>21g</span></div>
+            </div>
+            <div class="compare-bar-group">
+              <span>Calories</span>
+              <div class="compare-bar"><div class="compare-fill us" data-width="3%"></div><div class="compare-fill them" data-width="60%"></div></div>
+              <div class="compare-vals"><span>5</span><span>80</span></div>
+            </div>
+            <div class="compare-bar-group">
+              <span>Artificial Dyes</span>
+              <div class="compare-bar"><div class="compare-fill us" data-width="0%"></div><div class="compare-fill them" data-width="100%"></div></div>
+              <div class="compare-vals"><span>0</span><span>3+</span></div>
+            </div>
+            <div class="compare-bar-group">
+              <span>Electrolytes</span>
+              <div class="compare-bar"><div class="compare-fill us accent" data-width="95%"></div><div class="compare-fill them" data-width="40%"></div></div>
+              <div class="compare-vals"><span>5 types</span><span>2 types</span></div>
+            </div>
+          </div>
+          <div class="compare-verdict tilt-card" data-tilt>
+            <span class="verdict-emoji">🏆</span>
+            <p><strong>KDSportLyte wins</strong> across every category. Better hydration, zero junk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section id="reviews" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">⭐ Real Parents, Real Kids</span>
+        <h2>What They're <span class="gradient-text">Saying</span></h2>
+      </div>
+      <div class="reviews-slider-wrapper">
+        <button class="slider-btn slider-prev" id="reviewPrev" aria-label="Previous">
+          <iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+        </button>
+        <div class="reviews-viewport">
+          <div class="reviews-track" id="reviewsTrack">
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"My 7-year-old used to refuse water during soccer. Now he begs for Blue Lightning! Game changer."</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#FF6B00;">S</div>
+                <div><strong>Sarah M.</strong><span>Mom of 2</span></div>
+              </div>
+              <img src="https://picsum.photos/seed/review1/80/80.jpg" class="review-photo" alt="Review" />
+            </div>
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"Finally an electrolyte drink that doesn't have a paragraph of artificial junk. Pink Power is our fav!"</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#00B4FF;">D</div>
+                <div><strong>David R.</strong><span>Dad of 3</span></div>
+              </div>
+            </div>
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"I'm a pediatrician and I recommend this to all my patients' parents. The formulation is excellent."</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#7FFF00;">A</div>
+                <div><strong>Dr. Amanda K.</strong><span>Pediatrician</span></div>
+              </div>
+            </div>
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"We buy the variety pack every month. Every flavor is a hit. Even I sneak one sometimes 😂"</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#FF1493;">J</div>
+                <div><strong>Jessica L.</strong><span>Mom of 4</span></div>
+              </div>
+              <img src="https://picsum.photos/seed/review4/80/80.jpg" class="review-photo" alt="Review" />
+            </div>
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"Orange Blast tastes like a creamsicle! My daughter drinks it after gymnastics. Love the zero sugar."</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#FF4444;">M</div>
+                <div><strong>Mike T.</strong><span>Dad of 1</span></div>
+              </div>
+            </div>
+            <div class="review-card tilt-card" data-tilt>
+              <div class="review-stars">★★★★★</div>
+              <p>"Green Galaxy is AMAZING. My kids think they're drinking a space potion. Hydration = fun now!"</p>
+              <div class="review-author">
+                <div class="review-avatar" style="background:#9B59B6;">R</div>
+                <div><strong>Rachel P.</strong><span>Mom of 2</span></div>
+              </div>
+              <img src="https://picsum.photos/seed/review6/80/80.jpg" class="review-photo" alt="Review" />
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn slider-next" id="reviewNext" aria-label="Next">
+          <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+        </button>
+      </div>
+      <div class="slider-dots" id="reviewDots"></div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">❓ Got Questions?</span>
+        <h2>Frequently <span class="gradient-text">Asked</span></h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question">What age is KDSportLyte for? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>KDSportLyte is formulated for kids ages 3 and up. For children under 3, consult your pediatrician.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is it really zero sugar? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>Yes! Zero added sugars. We use monk fruit and stevia for natural sweetness without the crash.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How many sticks can my kid have per day? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>We recommend 1-3 sticks per day depending on activity level. During intense sports or hot weather, up to 4 is fine.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does it contain any allergens? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>KDSportLyte is free from all major allergens: no dairy, soy, gluten, nuts, or eggs. Always check the label for updates.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can adults drink it too? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>Absolutely! While the electrolyte levels are optimized for kids, adults love it too — especially as a light hydration option.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer a subscription? <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon></button>
+          <div class="faq-answer"><p>Yes! Subscribe & Save gives you 20% off every order + free shipping. Cancel anytime from your account dashboard.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA / NEWSLETTER ===== -->
+  <section id="cta" class="section cta-section">
+    <div class="container">
+      <div class="cta-inner tilt-card" data-tilt>
+        <div class="cta-particles" id="ctaParticles"></div>
+        <h2>Join the <span class="gradient-text">KDSportLyte</span> Family ⚡</h2>
+        <p>Get 15% off your first order + fun stuff for your kids!</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" id="emailInput" placeholder="Enter your email address" required />
+          <button type="submit" class="magnetic-btn">Subscribe 🚀</button>
+        </form>
+        <span class="newsletter-note">No spam, ever. Unsubscribe anytime.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo"><span class="logo-bolt">⚡</span> KD<span>SportLyte</span></a>
+          <p>Bold hydration for bold kids. Made with love, zero junk.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><iconify-icon icon="mdi:instagram" width="22"></iconify-icon></a>
+            <a href="#" aria-label="TikTok"><iconify-icon icon="ic:baseline-tiktok" width="22"></iconify-icon></a>
+            <a href="#" aria-label="Facebook"><iconify-icon icon="mdi:facebook" width="22"></iconify-icon></a>
+            <a href="#" aria-label="Twitter"><iconify-icon icon="mdi:twitter" width="22"></iconify-icon></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#flavors">All Flavors</a>
+          <a href="#flavors">Variety Pack</a>
+          <a href="#flavors">Subscribe & Save</a>
+          <a href="#">Gift Cards</a>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <a href="#benefits">Benefits</a>
+          <a href="#nutrition">Nutrition</a>
+          <a href="#">Blog</a>
+          <a href="#">Science</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 KDSportLyte. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
